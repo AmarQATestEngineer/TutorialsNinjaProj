@@ -30,7 +30,7 @@ public class Login {
 	@BeforeMethod
 	public void setUp() {
 		
-		String browserName="fireforx";
+		String browserName="chrome";
 		
 		if(browserName.equals("chrome")) {
 			System.setProperty("webdriver.chrome.driver","C:\\Users\\LENOVO\\Desktop\\SeleniumProjects\\TutorialsNinjaProj\\Drivers\\chromedriver.exe");
