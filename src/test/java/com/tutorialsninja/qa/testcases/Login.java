@@ -27,7 +27,8 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Login extends Base {
 	
-	 WebDriver driver;
+	WebDriver driver;
+	
 	@BeforeMethod
 	public void setUp() {
 		
