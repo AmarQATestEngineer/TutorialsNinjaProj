@@ -21,41 +21,17 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import com.tutorialsninja.qa.base.Base;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class Login {
+public class Login extends Base {
 	
-	static WebDriver driver;
-	
+	 WebDriver driver;
 	@BeforeMethod
 	public void setUp() {
 		
-		String browserName="chrome";
-		
-		if(browserName.equals("chrome")) {
-			System.setProperty("webdriver.chrome.driver","C:\\Users\\LENOVO\\Desktop\\SeleniumProjects\\TutorialsNinjaProj\\Drivers\\chromedriver.exe");
-			driver = new ChromeDriver();	
-		} 
-		else if(browserName.equals("firefox")){
-			System.setProperty("webdriver.gecko.driver","C:\\Users\\LENOVO\\Desktop\\SeleniumProjects\\TutorialsNinjaProj\\Drivers\\geckodriver.exe");
-		    driver = new FirefoxDriver();
-		}
-		 else if(browserName.equals("edge")){
-				System.setProperty("webdriver.edge.driver","C:\\Users\\LENOVO\\Desktop\\SeleniumProjects\\TutorialsNinjaProj\\Drivers\\msedgedriver.exe");
-			    driver = new EdgeDriver();
-			}
-		 else if(browserName.equals("Safari")){
-			 driver = new SafariDriver();
-			}
-		/*
-		 * System.setProperty("webdriver.chrome.driver",
-		 * "C:\\Users\\LENOVO\\Desktop\\SeleniumProjects\\TutorialsNinjaProj\\Drivers\\chromedriver.exe"
-		 * ); driver = new ChromeDriver();
-		 */
-		driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
-		//driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
-		driver.get("https://tutorialsninja.com/demo/");
-		driver.manage().window().maximize();
+		driver= initializeBrowserAndOpenApplicationURL("chrome");
 		driver.findElement(By.xpath("//span[text()='My Account']")).click();
 		driver.findElement(By.linkText("Login")).click();
 	}
